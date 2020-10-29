@@ -7,14 +7,19 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'PWA Demo';
-  joke: any;
+  title = 'PWA  Demo';
+  isOnline = navigator.onLine;
+  joke: any = null;
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
     this.getJoke();
-    setInterval(() => this.getJoke(), 10 * 1000);
+    setInterval(() => this.getJoke(), 5 * 1000);
+
+    setInterval(() => {
+      this.isOnline = navigator.onLine;
+    }, 1 * 1000);
   }
 
   getJoke() {

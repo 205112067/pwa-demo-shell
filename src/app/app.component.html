@@ -1,5 +1,8 @@
 <div class="content" role="main">
-  <h1>{{ title }}</h1>
+  <h1>
+    <span  [ngClass]="isOnline? 'online' : 'offline'"></span>
+    {{ title }}
+  </h1>
   <div *ngIf="joke" class="joke">
     {{ joke.value.joke }}
   </div>
